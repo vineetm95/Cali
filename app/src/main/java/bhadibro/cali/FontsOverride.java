@@ -13,7 +13,7 @@ public final class FontsOverride {
                 fontAssetName);
         replaceFont(staticTypefaceFieldName, regular);
     }
-
+//test contributer2
     protected static void replaceFont(String staticTypefaceFieldName,
                                       final Typeface newTypeface) {
         try {
