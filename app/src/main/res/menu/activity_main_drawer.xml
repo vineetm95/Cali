@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_standard"
+            android:title="Standard" />
+        <item
+            android:id="@+id/nav_Scientific"
+            android:title="Scientific" />
+        <item
+            android:id="@+id/nav_Programmer"
+            android:title="Programmer" />
+        <item
+            android:id="@+id/nav_DateCalc"
+            android:title="Date Calculation" />
+    </group>
+
+    <item android:title="Converter">
+        <menu>
+            <item
+                android:id="@+id/nav_Volume"
+                android:title="Volume" />
+            <item
+                android:id="@+id/nav_Length"
+                android:title="Length" />
+            <item
+                android:id="@+id/nav_Weight"
+                android:title="Weight and Mass" />
+            <item
+                android:id="@+id/nav_Temp"
+                android:title="Temperature" />
+            <item
+                android:id="@+id/nav_energy"
+                android:title="Energy" />
+            <item
+                android:id="@+id/nav_Area"
+                android:title="Area" />
+            <item
+                android:id="@+id/nav_Speed"
+                android:title="Speed" />
+        </menu>
+    </item>
+
+</menu>
