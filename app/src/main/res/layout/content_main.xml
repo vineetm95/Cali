@@ -101,7 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:text="M&#9660;"
-                android:id="@+id/MDown"
+                android:id="@+id/bMDown"
                 android:layout_column="3"
                 android:layout_weight=".16"
                 android:background="#000000"

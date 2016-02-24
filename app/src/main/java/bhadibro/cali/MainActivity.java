@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -31,8 +32,8 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FontsOverride.setDefaultFont(this, "normal", "segoeui.ttf");
-        //Buttons initialized
-        /*Button b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,bMult,bPlus,bDivide,bMS,bMPlus,bMMinus,bMR,;
+
+        Button b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,bMC,bDot,bEqual,bMultiply,bPlus,bSubtract,bC,bCE,bBackspace,bDivide,bMS,bMPlus,bMMinus,bMR,bMDown,bMod,bSqrt,bSqr,bRecip,bSignInvert;
         b0 = (Button)findViewById(R.id.b0);
         b1 = (Button)findViewById(R.id.b1);
         b2 = (Button)findViewById(R.id.b2);
@@ -43,6 +44,34 @@ public class MainActivity extends AppCompatActivity
         b7 = (Button)findViewById(R.id.b7);
         b8 = (Button)findViewById(R.id.b8);
         b9 = (Button)findViewById(R.id.b9);
+        bMC = (Button)findViewById(R.id.bMC);
+        bMR = (Button)findViewById(R.id.bMR);
+        bMPlus = (Button)findViewById(R.id.bMPlus);
+        bMMinus = (Button)findViewById(R.id.bMMinus);
+        bMS = (Button)findViewById(R.id.bMS);
+        bMDown = (Button)findViewById(R.id.bMDown);
+        bMod = (Button)findViewById(R.id.bMod);
+        bSqrt = (Button)findViewById(R.id.bSqrt);
+        bSqr = (Button)findViewById(R.id.bSqr);
+        bRecip = (Button)findViewById(R.id.bRecip);
+        bCE = (Button)findViewById(R.id.bCE);
+        bC = (Button)findViewById(R.id.bC);
+        bBackspace = (Button)findViewById(R.id.bBackspace);
+        bDivide = (Button)findViewById(R.id.bDivide);
+        bMultiply = (Button)findViewById(R.id.bMultiply);
+        bSubtract = (Button)findViewById(R.id.bSubtract);
+        bPlus = (Button)findViewById(R.id.bPlus);
+        bSignInvert = (Button)findViewById(R.id.bSignInvert);
+        bDot = (Button)findViewById(R.id.bDot);
+        bEqual = (Button)findViewById(R.id.bEqual);
+        b0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i("Cali", "Clicked 0");
+                System.out.println("Clicked 0");
+            }
+        });
+
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
