@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -24,15 +25,33 @@ import java.lang.reflect.Field;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    public boolean ZeroCheck(TextView display){
+        long x;
+        try{
+            x=Long.parseLong(display.getText().toString());
+        }catch(Exception e){
+            Log.e("Invalid:","Might be a Expression: "+e);
+            return false;
+        }
+        if (x==0)
+            return true;
+        else
+            return false;
+    }
+    public void Disp(TextView display, int Op){
+        if(ZeroCheck(display)){
+            display.setText("");
+        }
+        display.setText("" + display.getText() + Op);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FontsOverride.setDefaultFont(this, "normal", "segoeui.ttf");
-
+        final TextView display = (TextView)findViewById(R.id.Display);
         Button b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,bMC,bDot,bEqual,bMultiply,bPlus,bSubtract,bC,bCE,bBackspace,bDivide,bMS,bMPlus,bMMinus,bMR,bMDown,bMod,bSqrt,bSqr,bRecip,bSignInvert;
         b0 = (Button)findViewById(R.id.b0);
         b1 = (Button)findViewById(R.id.b1);
@@ -67,11 +86,63 @@ public class MainActivity extends AppCompatActivity
         b0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i("Cali", "Clicked 0");
-                System.out.println("Clicked 0");
+                Disp(display,0);
             }
         });
-
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Disp(display,1);
+            }
+        });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Disp(display,2);
+            }
+        });
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Disp(display,3);
+            }
+        });
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Disp(display,4);
+            }
+        });
+        b5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Disp(display,5);
+            }
+        });
+        b6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Disp(display,6);
+            }
+        });
+        b7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Disp(display,7);
+            }
+        });
+        b8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Disp(display,8);
+            }
+        });
+        b9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Disp(display,9);
+            }
+        });
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

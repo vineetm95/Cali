@@ -25,7 +25,10 @@
             android:text="0"
             android:textColor="#ffffff"
             android:textSize="@dimen/abc_text_size_headline_material"
-            android:typeface="normal" />
+            android:typeface="normal"
+            android:scrollbars = "horizontal"
+            android:singleLine="true"
+            />
     </FrameLayout>
 
     <TableLayout
