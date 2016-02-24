@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FontsOverride.setDefaultFont(this, "normal", "segoeui.ttf");
+        //Buttons initialized
         /*Button b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,bMult,bPlus,bDivide,bMS,bMPlus,bMMinus,bMR,;
         b0 = (Button)findViewById(R.id.b0);
         b1 = (Button)findViewById(R.id.b1);
