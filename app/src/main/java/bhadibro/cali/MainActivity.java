@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         FontsOverride.setDefaultFont(this, "normal", "segoeui.ttf");
         final TextView display = (TextView)findViewById(R.id.Display);
+        final TextView exprDisplay = (TextView)findViewById(R.id.ExprDisplay);
         Button b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,bMC,bDot,bEqual,bMultiply,bPlus,bSubtract,bC,bCE,bBackspace,bDivide,bMS,bMPlus,bMMinus,bMR,bMDown,bMod,bSqrt,bSqr,bRecip,bSignInvert;
         b0 = (Button)findViewById(R.id.b0);
         b1 = (Button)findViewById(R.id.b1);
@@ -141,6 +143,60 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Disp(display,9);
+            }
+        });
+        bC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                display.setText("0");
+                exprDisplay.setText("");
+
+            }
+        });
+        bCE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                display.setText("0");
+                exprDisplay.setText("");
+
+            }
+        });
+        bBackspace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String cont = display.getText().toString();
+                System.out.println(cont + " len:: " + cont.length());
+                if (cont.length()==1 || cont.equals("0") ){
+                    display.setText("0");
+                }
+                else if (cont.length()==2 || cont.equals("-") ){
+                    display.setText("0");
+                }
+                else if(cont.length()>1){
+                    display.setText(cont.substring(0, cont.length() - 1));
+                }
+            }
+        });
+        bDot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String cont = display.getText().toString();
+                if (!cont.contains(".")){
+                    display.setText(cont+".");
+                }
+            }
+        });
+        bSignInvert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String cont = display.getText().toString();
+                long x=Long.parseLong(cont);
+                if (x>0){
+                    display.setText("-"+cont);
+                }
+                else if (x < 0) {
+                    display.setText(cont.substring(1));
+                }
             }
         });
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"  >
         <item
             android:id="@+id/nav_standard"
             android:title="Standard" />
@@ -20,7 +20,7 @@
         <menu>
             <item
                 android:id="@+id/nav_Volume"
-                android:title="Volume" />
+                android:title="Volume"/>
             <item
                 android:id="@+id/nav_Length"
                 android:title="Length" />
@@ -41,5 +41,8 @@
                 android:title="Speed" />
         </menu>
     </item>
-
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        />
 </menu>
