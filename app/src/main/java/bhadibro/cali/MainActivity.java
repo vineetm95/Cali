@@ -26,10 +26,13 @@ import java.lang.reflect.Field;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    double val1 = 0,val2=0,equiv=0;
+    String opr;
+    Boolean isOp=false;
     public boolean ZeroCheck(TextView display){
-        long x;
+        double x;
         try{
-            x=Long.parseLong(display.getText().toString());
+            x=Double.parseDouble(display.getText().toString());
         }catch(Exception e){
             Log.e("Invalid:","Might be a Expression: "+e);
             return false;
@@ -45,6 +48,30 @@ public class MainActivity extends AppCompatActivity
         }
         display.setText("" + display.getText() + Op);
     }
+    public double Calculate(String op){
+        switch (op) {
+            case "+": return val1+val2;
+            case "-": return val1-val2;
+            case "*": return val1*val2;
+            case "/": return val1/val2;
+            default : return 0;
+        }
+    }
+    public  void ExprMk(TextView display, TextView exprDisplay,String op){
+        String cont = display.getText().toString();
+        if (!isOp){
+            val1 = Double.parseDouble(cont);
+            exprDisplay.setText(cont+" "+op);
+            display.setText("0");
+            opr=op;
+            isOp=true;
+        }
+        else{
+            String ExprCont= exprDisplay.getText().toString();
+            exprDisplay.setText(ExprCont.substring(0,ExprCont.length()-1)+op);
+            opr=op;
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +81,7 @@ public class MainActivity extends AppCompatActivity
         FontsOverride.setDefaultFont(this, "normal", "segoeui.ttf");
         final TextView display = (TextView)findViewById(R.id.Display);
         final TextView exprDisplay = (TextView)findViewById(R.id.ExprDisplay);
+
         Button b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,bMC,bDot,bEqual,bMultiply,bPlus,bSubtract,bC,bCE,bBackspace,bDivide,bMS,bMPlus,bMMinus,bMR,bMDown,bMod,bSqrt,bSqr,bRecip,bSignInvert;
         b0 = (Button)findViewById(R.id.b0);
         b1 = (Button)findViewById(R.id.b1);
@@ -142,7 +170,7 @@ public class MainActivity extends AppCompatActivity
         b9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Disp(display,9);
+                Disp(display, 9);
             }
         });
         bC.setOnClickListener(new View.OnClickListener() {
@@ -190,12 +218,50 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 String cont = display.getText().toString();
-                long x=Long.parseLong(cont);
+                double x=Double.parseDouble(cont);
                 if (x>0){
                     display.setText("-"+cont);
                 }
                 else if (x < 0) {
                     display.setText(cont.substring(1));
+                }
+            }
+        });
+        bPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ExprMk(display,exprDisplay,"+");
+            }
+        });
+        bSubtract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ExprMk(display,exprDisplay,"-");
+            }
+        });
+        bMultiply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ExprMk(display,exprDisplay,"*");
+            }
+        });
+        bDivide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ExprMk(display,exprDisplay,"/");
+            }
+        });
+        bEqual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isOp){
+                    String cont = display.getText().toString();
+                    val2 = Double.parseDouble(cont);
+                    equiv = Calculate(opr);
+                    exprDisplay.setText("");
+                    display.setText(""+equiv);
+                    opr="";
+                    isOp=false;
                 }
             }
         });
