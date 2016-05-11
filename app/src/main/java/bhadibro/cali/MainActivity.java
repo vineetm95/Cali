@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity
             case "+": return val1+val2;
             case "-": return val1-val2;
             case "*": return val1*val2;
-            case "/": return val1/val2;
+            case "÷": return val1/val2;
             default : return 0;
         }
     }
@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity
         bDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ExprMk(display,exprDisplay,"/");
+                ExprMk(display,exprDisplay,"÷");
             }
         });
         bEqual.setOnClickListener(new View.OnClickListener() {
@@ -263,6 +263,15 @@ public class MainActivity extends AppCompatActivity
                     opr="";
                     isOp=false;
                 }
+            }
+        });
+        bSqrt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String cont = display.getText().toString();
+                val1 = Math.sqrt(Integer.parseInt(cont));
+                exprDisplay.setText("\u221A"+"("+Double.parseDouble(cont)+")");
+                display.setText(""+val1);
             }
         });
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
