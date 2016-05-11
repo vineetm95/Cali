@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity
         if(ZeroCheck(display)){
             display.setText("");
         }
+
         display.setText("" + display.getText() + Op);
     }
     public double Calculate(String op){
@@ -282,6 +283,11 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });*/
+        bC.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                display.setText("0");
+            }
+        });
         //testing commit
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -291,6 +297,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
     }
 
     @Override

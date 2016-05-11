@@ -5,4 +5,25 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="title_activity_volumeconv">volumeconv</string>
+    <string-array name="volumeitems">
+        <item>Millilitres</item>
+        <item>Cubic centimetres</item>
+        <item>Litres</item>
+        <item>Cubic metres</item>
+        <item>Teaspoons (US)</item>
+        <item>Tablespoons (US)</item>
+        <item>Fluid ounces (US)</item>
+        <item>Cups (US)</item>
+        <item>Quarts (US)</item>
+        <item>Gallons (US)</item>
+        <item>Cubic inches</item>
+        <item>Cubic feet</item>
+        <item>Cubic yards</item>
+        <item>Teaspoons (UK)</item>
+        <item>Tablespoons(UK)</item>
+        <item>Fluid ounces (UK)</item>
+        <item>Quarts (UK)</item>
+        <item>Gallons (UK)</item>
+    </string-array>
 </resources>
